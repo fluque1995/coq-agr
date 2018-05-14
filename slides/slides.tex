@@ -116,7 +116,7 @@
 
 \end{frame}
 
-\begin{frame}[fragile]{Isomorfismo de Curry-Howard (II)}
+\begin{frame}[fragile]{Isomorfismo de Curry-Howard --- Correspondencias básicas}
 
   \begin{itemize}
   \item $a \land b \iff (A, B)$
@@ -124,6 +124,15 @@
   \item $a \implies b \iff A \leftarrow B$
   \item $\bot \iff Void$
   \item $\neg a \iff A \leftarrow Void$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Isomorfismo de Curry-Howard --- Cuantificadores}
+
+  \begin{itemize}
+  \item $\exists a : P(a) \iff (a : A, p : P a)$
+  \item $\forall a : P(a) \iff A \leftarrow P a$
   \end{itemize}
 
 \end{frame}
@@ -151,7 +160,7 @@
 
 \section{Pruebas sobre álgebras usando Coq}
 
-\begin{frame}[fragile]{Pruebas}
+\begin{frame}[fragile]{Primeros pasos}
 
   \begin{itemize}
   \item Aquí viene la magia
