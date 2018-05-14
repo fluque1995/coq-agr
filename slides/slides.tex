@@ -35,8 +35,10 @@
 \begin{frame}{Demostradores interactivos de teoremas}
 
   \begin{itemize}
-  \item Herramientas orientadas a la demostración de teoremas por ordenador
-  \item Colaboran con un usuario humano para comprobar la corrección de las demostraciones
+  \item Herramientas orientadas a la demostración de teoremas por
+    ordenador
+  \item Colaboran con un usuario humano para comprobar la corrección
+    de las demostraciones
   \item Basadas en el isomorfismo de Curry-Howard
   \item Agda, Isabelle, Coq
   \end{itemize}
@@ -45,10 +47,22 @@
 
 \section{Historia}
 
-\begin{frame}{Historia}
+\begin{frame}[fragile]{Historia}
 
   \begin{itemize}
-  \item
+  \item Desde principios del siglo XIX, se intenta construir máquinas
+    que automaticen cálculos (máquina de calcular y máquina analítica
+    de Charles Babbage), basadas en sistemas mecánicos
+  \item A principios de los años 30 del siglo XIX, Alonzo Church
+    desarrolla el cálculo lambda, que consiste en un sistema formal
+    que especifica las funciones que pueden ser calculables por un
+    ordenador
+  \item En 1936, Alan Turing describe en su artículo \textit{On
+      Computable Numbers, with an Application to the
+      Entscheidungsproblem} los límites de la computación, demostrando
+    que no todos los problemas pueden ser resueltos utilizando un
+    ordenador, con una aproximación distinta aunque equivalente a la
+    que había dado Church
   \end{itemize}
 
 \end{frame}
@@ -56,10 +70,27 @@
 \begin{frame}{Historia}
 
   \begin{itemize}
-  \item A mediados del siglo XX comienza a pensarse que los ordenadores pueden
-    usarse como herramienta para hacer demostraciones
-  \item Comienzan a aparecer herramientas que permiten comprobar la corrección
-    de pruebas matemáticas por ordenador
+  \item A mediados del siglo XX comienza a pensarse que los
+    ordenadores pueden usarse como herramienta para hacer
+    demostraciones
+  \item Comienzan a aparecer herramientas que permiten comprobar la
+    corrección de pruebas matemáticas por ordenador
+  \item En 1954, Martin Davis consigue demostrar utilizando una
+    máquina basada en tubos de vacío que la suma de dos números pares
+    es par
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Asistentes de demostración y demostradores de teoremas}
+
+  \begin{itemize}
+  \item Los demostradores de teoremas son sistemas orientados a la
+    demostración automática, sin la cooperación de un usuario humano
+  \item Los asistentes de demostración son sistemas orientados a
+    comprobar la corrección de una demostración dada por un humano
+  \item Los segundos son más simples, pero también menos potentes
+  \item Nos centraremos en los segundos
   \end{itemize}
 
 \end{frame}
@@ -74,13 +105,23 @@
 
 \end{frame}
 
-\section{CoQQQ}
+\section{Coq}
 
 \begin{frame}[fragile]{Coq}
 
   \begin{itemize}
-  \item Programilla de abyecta sintaxis que lo peta para demostrar teoremillas
-  \item Nuestro quebradero de cabeza de las últimas dos semanas
+  \item Demostrador interactivo de teoremas
+  \item Comienza su desarrollo en 1984 en el instituto INRIA
+    (Rocquencourt, cerca de París)
+  \item Escrito en OCaml, que es la versión orientada a objetos de
+    Caml (\textit{Categorical Abstract Machine Language}), ambos
+    desarrollados en primera instancia en la \textit{École Normale
+      Superieure} de París y posteriormente en el INRIA
+  \item A pesar de ser un asistente de comprobación de teoremas,
+    incorpora algunas directivas propias de los sistemas automáticos
+    de demostración
+  \item Se utilizó en la demostración del Teorema de los Cuatro Colores,
+    cuya demostración completa se dió en 2004
   \end{itemize}
 
 \end{frame}
