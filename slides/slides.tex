@@ -95,12 +95,35 @@
 
 \end{frame}
 
-\section{Isomorfismo de Curry-Howard}
+\section{Fundamentación teórica}
+
+\begin{frame}[fragile]{Lógica intuicionista}
+
+  \begin{itemize}
+  \item Desarrollada por Arend Heyting en el marco del intuicionismo de Brouwer
+  \item Debilita la lógica clásica eliminando el axioma del tercio excluso, i.e., $a \lor \neg a$
+  \end{itemize}
+
+\end{frame}
 
 \begin{frame}[fragile]{Isomorfismo de Curry-Howard}
 
   \begin{itemize}
-  \item
+  \item Correspondencia unívoca entre el universo de las proposiciones y el de los tipos
+  \item Las proposiciones se corresponden con tipos; las demostraciones de los teoremas, con los programas que computan las funciones
+  \item La proposiciones serán ciertas \textit{si, y sólo si}, el tipo correspondiente está \textbf{habitado}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Isomorfismo de Curry-Howard (II)}
+
+  \begin{itemize}
+  \item $a \land b \iff (A, B)$
+  \item $a \lor b \iff A + B$
+  \item $a \implies b \iff A \leftarrow B$
+  \item $\bot \iff Void$
+  \item $\neg a \iff A \leftarrow Void$
   \end{itemize}
 
 \end{frame}
