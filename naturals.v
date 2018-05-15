@@ -1,3 +1,5 @@
+Require Import Omega.
+
 Inductive nat : Type :=
   | O : nat
   | S : nat -> nat.
@@ -28,13 +30,15 @@ Proof.
   intros n.
   induction n as [|n'].
     reflexivity.
-    simpl. rewrite <- IHn'. reflexivity.
+    simpl.
+    rewrite <- IHn'.
+    reflexivity.
 Qed.
 
 Check plus_0_r.
 
 Lemma plus_S_r:
-  forall (n m:nat), n + S m = S (n + m).
+  forall (n m : nat), n + S m = S (n + m).
 Proof.
   intros n m.
   induction n as [| n'].
@@ -50,6 +54,23 @@ Proof.
     simpl. rewrite <- plus_0_r. reflexivity.
     simpl. rewrite -> IHn. rewrite -> plus_S_r. reflexivity.
 Qed.
+
+Lemma plus_assoc:
+  forall (n m p: nat), (n + m) + p = n + (m + p).
+Proof.
+  intros n m p.
+  induction p.
+  rewrite <- plus_0_r.
+  rewrite <- plus_0_r.
+  reflexivity.
+  rewrite -> (plus_S_r m p).
+  rewrite -> (plus_S_r n (m + p)).
+  rewrite <- IHp.
+  rewrite -> plus_S_r.
+  reflexivity.
+Qed.
+
+  
 
 Lemma mult_1_r:
   forall (n:nat), n = n * S O.
@@ -78,14 +99,15 @@ Proof.
   induction n.
   simpl.
   reflexivity.
-  induction m.
   simpl.
   rewrite -> IHn.
-  rewrite -> mult_O_r.
-  simpl.
+  rewrite <- plus_S_r.
+  rewrite <- (plus_S_r (n * m) n).
+  rewrite <- plus_assoc.
   reflexivity.
-  simpl.
-
+Qed.
+  
+        
 Theorem mult_comm:
   forall (n m : nat), n * m = m * n.
 Proof.
@@ -95,5 +117,8 @@ Proof.
   rewrite -> mult_O_r.
   reflexivity.
   simpl.
-  
+  rewrite mult_S_r.
+  rewrite -> IHn.
+  rewrite -> plus_comm.
+  reflexivity.
 Qed.
