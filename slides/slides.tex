@@ -14,6 +14,8 @@
 
 \usepackage{xspace}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\usepackage{multicol}
+\usepackage{listingsutf8}
 
 \title{Demostradores interactivos de teoremas}
 \subtitle{Introducción a Coq}
@@ -35,8 +37,8 @@
 \begin{frame}{Demostradores interactivos de teoremas}
 
   \begin{itemize}
-  \item Herramientas orientadas a la demostración de teoremas por
-    ordenador
+  \item Herramientas orientadas a la demostración de teoremas asistida
+    por ordenador
   \item Colaboran con un usuario humano para comprobar la corrección
     de las demostraciones
   \item Basadas en el isomorfismo de Curry-Howard
@@ -56,7 +58,7 @@
   \item A principios de los años 30 del siglo XIX, Alonzo Church
     desarrolla el cálculo lambda, que consiste en un sistema formal
     que especifica las funciones que pueden ser calculables por un
-    ordenador
+    computador
   \item En 1936, Alan Turing describe en su artículo \textit{On
       Computable Numbers, with an Application to the
       Entscheidungsproblem} los límites de la computación, demostrando
@@ -115,6 +117,23 @@
   \item Las proposiciones se corresponden con tipos; las
     demostraciones de los teoremas, con los programas que computan las
     funciones
+  \end{itemize}
+  \begin{minipage}{0.25\textwidth}
+    \begin{center}
+      $\neg \neg \neg a \implies \neg a$
+    \end{center}
+  \end{minipage}
+  \begin{minipage}{0.65\textwidth}
+    \begin{center}
+      \begin{lstlisting}[basicstyle=\tiny]
+      data Void
+
+      triple_implies_simple :: (((a -> Void) -> Void) -> Void) -> (a -> Void)
+      triple_implies_simple f x = f (\g -> g x)
+      \end{lstlisting}
+    \end{center}
+  \end{minipage}
+  \begin{itemize}
   \item La proposiciones serán ciertas \textit{si, y sólo si}, el tipo
     correspondiente está \textbf{habitado}
   \end{itemize}
@@ -126,9 +145,9 @@
   \begin{itemize}
   \item $a \land b \iff (A, B)$
   \item $a \lor b \iff A + B$
-  \item $a \implies b \iff A \leftarrow B$
+  \item $a \implies b \iff A \rightarrow B$
   \item $\bot \iff Void$
-  \item $\neg a \iff A \leftarrow Void$
+  \item $\neg a \iff A \rightarrow Void$
   \end{itemize}
 
 \end{frame}
@@ -136,8 +155,8 @@
 \begin{frame}[fragile]{Isomorfismo de Curry-Howard --- Cuantificadores}
 
   \begin{itemize}
-  \item $\exists a : P(a) \iff (a : A, p : P a)$
-  \item $\forall a : P(a) \iff A \leftarrow P a$
+  \item $\exists a : P(a) \iff (a : A, p : P \, a)$
+  \item $\forall a : P(a) \iff A \rightarrow P \, a$
   \end{itemize}
 
 \end{frame}
@@ -165,14 +184,6 @@
 
 \end{frame}
 
-\section{Pruebas sobre álgebras usando Coq}
-
-\begin{frame}[fragile]{Primeros pasos}
-
-  \begin{itemize}
-  \item Aquí viene la magia
-  \end{itemize}
-
-\end{frame}
+\section{Usando Coq}
 
 \end{document}
