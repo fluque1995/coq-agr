@@ -2,7 +2,6 @@ Set Automatic Coercions Import.
 Set Implicit Arguments.
 Unset Strict Implicit.
 From Algebra Require Import Algebra.
-From Coq.Setoids Require Import Setoid.
 From Algebra Require Import Algebra_facts.
 
 Variable R : CRING.
@@ -71,5 +70,3 @@ Proof.
   apply Sym.
   exact (ALGEBRA_lin_right z x y).
 Qed.
-
-  
