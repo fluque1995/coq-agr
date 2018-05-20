@@ -1,3 +1,4 @@
+
 Theorem tautology : (forall A : Prop, A -> A).
 Proof.
   intros A.
@@ -38,8 +39,8 @@ Proof.
   intros A.
   intros not_not_not_a.
   intros proof_of_a.
-  apply not_not_not_a.
-  intros not_not_a.
-  apply not_not_a.
+  refine (not_not_not_a _).
+  intros not_a.
+  refine (not_a _).
   exact proof_of_a.
 Qed.
