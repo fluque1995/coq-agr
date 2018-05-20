@@ -118,7 +118,7 @@
     demostraciones de los teoremas, con los programas que computan las
     funciones
   \end{itemize}
-  \begin{minipage}{0.25\textwidth}
+  \begin{minipage}{0.3\textwidth}
     \begin{center}
       $\neg \neg \neg a \implies \neg a$
     \end{center}
@@ -128,7 +128,9 @@
       \begin{lstlisting}[basicstyle=\tiny]
       data Void
 
-      triple_implies_simple :: (((a -> Void) -> Void) -> Void) -> (a -> Void)
+      type Neg a = (a -> Void)
+
+      triple_implies_simple :: Neg (Neg (Neg a)) -> Neg a
       triple_implies_simple f x = f (\g -> g x)
       \end{lstlisting}
     \end{center}
