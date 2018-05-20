@@ -1,5 +1,3 @@
-Require Import Omega.
-
 Inductive nat : Type :=
   | O : nat
   | S : nat -> nat.
