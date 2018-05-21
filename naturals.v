@@ -1,5 +1,3 @@
-Require Import Omega.
-
 Inductive nat : Type :=
   | O : nat
   | S : nat -> nat.
@@ -16,22 +14,23 @@ Fixpoint mult (n m:nat) : nat :=
     | S p => plus m (mult p m)
   end.
 
+Eval compute in plus (S (S (S O))) (S (S O)).
 Eval compute in mult (S (S (S O))) (S (S O)).
 
 
 Notation "x + y" := (plus x y) (at level 50, left associativity).
 Notation "x * y" := (mult x y) (at level 40, left associativity). 
-Eval compute in (S (S (S (S O)))) + (S (S O)).
-Eval compute in (S (S (S (S O)))) * (S (S O)).
+Eval compute in (S (S (S O))) + (S (S O)).
+Eval compute in (S (S (S O))) * (S (S O)).
 
 Lemma plus_0_r:
   forall (n:nat), n = n + O.
 Proof.
   intros n.
-  induction n as [|n'].
+  induction n.
     reflexivity.
     simpl.
-    rewrite <- IHn'.
+    rewrite <- IHn.
     reflexivity.
 Qed.
 
@@ -41,9 +40,11 @@ Lemma plus_S_r:
   forall (n m : nat), n + S m = S (n + m).
 Proof.
   intros n m.
-  induction n as [| n'].
+  induction n.
     reflexivity.
-    simpl. rewrite <- IHn'. reflexivity.
+    simpl.
+    rewrite <- IHn.
+    reflexivity.
 Qed.
 
 Theorem plus_comm:
@@ -51,8 +52,13 @@ Theorem plus_comm:
 Proof.
   intros n m.
   induction n.
-    simpl. rewrite <- plus_0_r. reflexivity.
-    simpl. rewrite -> IHn. rewrite -> plus_S_r. reflexivity.
+  simpl.
+  rewrite <- plus_0_r.
+  reflexivity.
+  simpl.
+  rewrite -> IHn.
+  rewrite -> plus_S_r.
+  reflexivity.
 Qed.
 
 Lemma plus_assoc:
@@ -70,15 +76,13 @@ Proof.
   reflexivity.
 Qed.
 
-  
-
 Lemma mult_1_r:
   forall (n:nat), n = n * S O.
 Proof.
   intros n.
-  induction n as [|n'].
+  induction n.
   reflexivity.
-  simpl. rewrite <- IHn'. reflexivity.
+  simpl. rewrite <- IHn. reflexivity.
 Qed.
 
 Lemma mult_O_r:
@@ -106,8 +110,7 @@ Proof.
   rewrite <- plus_assoc.
   reflexivity.
 Qed.
-  
-        
+    
 Theorem mult_comm:
   forall (n m : nat), n * m = m * n.
 Proof.
