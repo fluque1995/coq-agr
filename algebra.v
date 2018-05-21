@@ -6,7 +6,7 @@ From Algebra Require Import Algebra_facts.
 
 Variable R : CRING.
 Variable A : ring_algebra R.
-Variable x : A.
+
 
 Definition is_center_element (x : A) : Type :=
   forall y : A, Equal (algebra_mult x y) (algebra_mult y x).
