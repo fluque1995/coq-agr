@@ -15,7 +15,6 @@ Definition is_center_element (x : A) : Type :=
 Theorem unit_is_center : is_center_element (ring_algebra_unit A).
 Proof.
   intros x.
-  auto with algebra.
   refine (@Trans _ (algebra_mult (ring_algebra_unit A) x) x (algebra_mult x (ring_algebra_unit A)) _ _).
   apply ring_algebra_unit_l.
   apply Sym.
@@ -57,6 +56,7 @@ Proof.
   intros x_center y_center.
   apply x_center.
 Qed.
+
 
 Theorem center_is_submodule : (forall x y : A, is_center_element x -> is_center_element y -> is_center_element (sgroup_law A x y)).
 Proof.
