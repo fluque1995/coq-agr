@@ -42,4 +42,5 @@ Proof.
   intros not_a.
   refine (not_a _).
   exact proof_of_a.
+  Show Proof.
 Qed.

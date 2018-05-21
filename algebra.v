@@ -15,7 +15,7 @@ Definition is_center_element (x : A) : Type :=
 Theorem unit_is_center : is_center_element (ring_algebra_unit A).
 Proof.
   intros x.
-  refine (@Trans _ (algebra_mult (ring_algebra_unit A) x) x (algebra_mult x (ring_algebra_unit A)) _ _).
+  refine (@Trans _ _ x _ _ _).
   apply ring_algebra_unit_l.
   apply Sym.
   apply ring_algebra_unit_r.
@@ -29,18 +29,18 @@ Proof.
   intros z.
   refine (@Trans _ _ (algebra_mult x (algebra_mult y z)) _ _ _).
   exact (ring_algebra_assoc A x y z).
-  refine (@Trans _ (algebra_mult x (algebra_mult y z)) (algebra_mult x (algebra_mult z y)) (algebra_mult z (algebra_mult x y)) _ _).
+  refine (@Trans _ _ (algebra_mult x (algebra_mult z y)) _ _ _).
   refine (ALGEBRA_comp _ _).
-  exact (@Refl _ x).
+  exact (Refl x).
   apply y_center.
-  refine (@Trans _ (algebra_mult x (algebra_mult z y)) (algebra_mult (algebra_mult x z) y) (algebra_mult z (algebra_mult x y)) _ _).
+  refine (@Trans _ _ (algebra_mult (algebra_mult x z) y) _ _ _).
   apply Sym.
   exact (ring_algebra_assoc A x z y).
-  refine (@Trans _ (algebra_mult (algebra_mult x z) y) (algebra_mult (algebra_mult z x) y) (algebra_mult z (algebra_mult x y)) _ _).
+  refine (@Trans _ _ (algebra_mult (algebra_mult z x) y) _ _ _).
   refine (ALGEBRA_comp _ _).
   apply x_center.
   exact (Refl y).
-  refine (@Trans _ (algebra_mult (algebra_mult z x) y) (algebra_mult z (algebra_mult x y)) (algebra_mult z (algebra_mult x y)) _ _).
+  refine (@Trans _ _ (algebra_mult z (algebra_mult x y)) _ _ _).
   exact (ring_algebra_assoc A z x y).
   refine (ALGEBRA_comp _ _).
   exact (Refl z).
