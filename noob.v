@@ -1,4 +1,3 @@
-
 Theorem tautology : (forall A : Prop, A -> A).
 Proof.
   intros A.
